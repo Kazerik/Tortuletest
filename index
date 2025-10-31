@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tortue baladeuse 🐢</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(120deg, #87ceeb, #98fb98);
+  }
+
+  #turtle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    user-select: none;
+    transition: transform 2s linear;
+  }
+</style>
+</head>
+<body>
+  <img id="turtle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Turtle_icon.svg/1024px-Turtle_icon.svg.png" alt="Tortue">
+
+  <script>
+    const turtle = document.getElementById('turtle');
+
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+
+    function moveTurtle() {
+      const maxX = window.innerWidth - 80;
+      const maxY = window.innerHeight - 80;
+      x = Math.random() * maxX;
+      y = Math.random() * maxY;
+      turtle.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 360}deg)`;
+    }
+
+    setInterval(moveTurtle, 2000);
+    moveTurtle();
+  </script>
+</body>
+</html>
